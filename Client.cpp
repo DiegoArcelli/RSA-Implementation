@@ -76,8 +76,8 @@ int main(int argc, char const *argv[]) {
     cout << "Public key: (" << n << "," << e << ")" << endl;
     cout << "Pirvate key: (" << n << "," << d.getNum() << ")" << endl;
 
-    int send_n;
-    int send_e;
+    unsigned long long int send_n;
+    unsigned long long int send_e;
     send_n = htonl(n);
 	write(sock,&send_n, sizeof(send_n));
     send_e = htonl(e);
@@ -85,7 +85,7 @@ int main(int argc, char const *argv[]) {
 	printf("Public key sent to server\nWaiting for the message\n"); 
 
     ModularArithmetic mes;
-    int c;
+    unsigned long long int c;
     do {
         read(sock, &c, sizeof(c));
         c = ntohl(c);

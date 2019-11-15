@@ -38,33 +38,34 @@ int main(int argc, char const *argv[]) {
         perror("listen"); 
         exit(EXIT_FAILURE); 
     } 
+
+    cout << "Waiting for the client to connect" << endl;
+
     if ((new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t*)&addrlen))<0) { 
         perror("accept"); 
         exit(EXIT_FAILURE); 
     } 
 
-    int recv_n;
-    int recv_e;
+    unsigned long long int recv_n;
+    unsigned long long int recv_e;
     
     char text[1024];
-
-    cout << "Waiting for the client to connect" << endl;
 
     read(new_socket, &recv_n, sizeof(recv_n));
     read(new_socket, &recv_e, sizeof(recv_e));
 
-    int n = ntohl(recv_n);
-    int e = ntohl(recv_e);
+    unsigned long long int n = ntohl(recv_n);
+    unsigned long long int e = ntohl(recv_e);
 
     cout << "Pubblic key: (" << n << "," << e << ")" << endl;
     cout << "Insert message: ";
     fgets(text, 1024, stdin);
 
-    int int_message[strlen(text)];
+    unsigned long long int int_message[strlen(text)];
 
     ModularArithmetic c;
     unsigned long long int i;
-    int m;
+    unsigned long long int m;
     cout << "Ciphered characters:" << endl;
     for(i = 0; i < strlen(text); i++){
         m = (int)text[i];
