@@ -39,8 +39,8 @@ int main(int argc, char const *argv[]) {
 
     //generation of two prime number named p and q 
     do {
-        p = rand() % 10000 + 1;
-        q = rand() % 10000 + 1;
+        p = rand() % 1000000 + 1;
+        q = rand() % 1000000 + 1;
     } while(!isPrime(p) || !isPrime(q));
 
     cout << "p: " << p << endl;

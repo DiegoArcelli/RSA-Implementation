@@ -12,4 +12,5 @@ class ModularArithmetic {
         ModularArithmetic operator+(unsigned long long int const n);
         ModularArithmetic operator*(unsigned long long int const n);
         static ModularArithmetic modularPower(unsigned long long int base, unsigned long long int exp, unsigned long long int mod);
+
 };

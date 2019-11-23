@@ -42,13 +42,20 @@ ModularArithmetic ModularArithmetic::operator*(unsigned long long int const n){
     return res;
 }
 
+
 ModularArithmetic ModularArithmetic::modularPower(unsigned long long int base, unsigned long long int exp, unsigned long long int mod){
-    ModularArithmetic m_base;
-    m_base.setMod(mod);
-    m_base.setNum(base);
-    unsigned long long int i;  
-    for(i = 0; i < exp - 1; i++){
-        m_base = m_base * base;
+    if(mod == 1){
+        ModularArithmetic res(1,1);
+        return res;
+    } else {
+        ModularArithmetic r(mod,1);
+        base = base % mod;
+        while(exp > 0){
+            if(exp % 2 == 1)
+                r = r*base;
+            exp = exp >> 1;
+            base = (base*base) % mod;
+        }
+        return r;
     }
-    return m_base;
 }
