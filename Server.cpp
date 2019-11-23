@@ -77,7 +77,7 @@ int main(int argc, char const *argv[]) {
     }
     for(i = 0; i < strlen(text); i++){
         m = htonl(int_message[i]);
-		write(new_socket,&m, sizeof(m)); 
+        write(new_socket,&m, sizeof(m)); 
     }
     printf("Ciphered text sent to client\n"); 
     return 0;

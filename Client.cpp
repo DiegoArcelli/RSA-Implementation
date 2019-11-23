@@ -59,7 +59,7 @@ int main(int argc, char const *argv[]) {
     } while(!areCoprime(pn,e));
     cout << "e: " << e << endl;
 
-    //generation of a number e such as e*d = 1 mod f(n)
+    //generation of a number e such that e*d = 1 mod f(n)
     unsigned long long int t = 1; 
     ModularArithmetic d(pn,0);
     ModularArithmetic res;
@@ -79,10 +79,10 @@ int main(int argc, char const *argv[]) {
     unsigned long long int send_n;
     unsigned long long int send_e;
     send_n = htonl(n);
-	write(sock,&send_n, sizeof(send_n));
+    write(sock,&send_n, sizeof(send_n));
     send_e = htonl(e);
-	write(sock,&send_e, sizeof(send_e)); 
-	printf("Public key sent to server\nWaiting for the message\n"); 
+    write(sock,&send_e, sizeof(send_e)); 
+    printf("Public key sent to server\nWaiting for the message\n"); 
 
     ModularArithmetic mes;
     unsigned long long int c;
@@ -93,8 +93,7 @@ int main(int argc, char const *argv[]) {
         printf("%c",(unsigned char)mes.getNum());
     } while(mes.getNum() != 10);
 
-
-	return 0; 
+    return 0; 
 }
 
 bool isPrime(unsigned long long int n){
