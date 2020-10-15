@@ -18,5 +18,5 @@ The keys are calculated in the following way:
 The encryption and the decryption of the message work like this:
 - The server gets a string as input
 - Every character of the string is converted in its corresponding ASCII codification
-- The characters are ciphered calculating <i>c = m<sup>e</sup></i>, where <i>m</i> is the ASCII conversion of the character
-- When the client receives <i>c</i>, it deciphers it calculating <i>m = c<sup>d</sup></i>
+- The characters are ciphered calculating <i>c = m<sup>e</sup> (mod n)</i>, where <i>m</i> is the ASCII conversion of the character
+- When the client receives <i>c</i>, it deciphers it calculating <i>m = c<sup>d</sup> (mod n)</i>
